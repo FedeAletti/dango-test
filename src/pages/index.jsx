@@ -1,93 +1,52 @@
 import { MainLayout } from "components/layouts"
 import { Card, TitleOptions } from "components/ui"
-
-const cardsData = [
-	{
-		id: 1,
-		title: "Tourmaline & Eucaliptus Bar Soap",
-		price: 12.0,
-		image: "/images/soap.jpg",
-		description:
-			"Recharge your skin with the super energizing power of finely crushed tourmaline powder blended with natural complexion",
-		linkTo: "www.google.com",
-	},
-	{
-		id: 2,
-		title: "Tourmaline & Argan Oil Bar Soap",
-		price: 12.0,
-		image: "/images/soap.jpg",
-		description:
-			"Recharge your skin with the super energizing power of finely crushed tourmaline powder blended with natural complexion",
-		linkTo: "www.google.com",
-	},
-	{
-		id: 3,
-		title: "Tourmaline & Tea Tree Bar Soap",
-		price: 12.0,
-		image: "/images/soap.jpg",
-		description:
-			"Recharge your skin with the super energizing power of finely crushed tourmaline powder blended with natural complexion",
-		linkTo: "www.google.com",
-	},
-	{
-		id: 4,
-		title: "Tourmaline & Unscented Bar Soap",
-		price: 12.0,
-		image: "/images/soap.jpg",
-		description:
-			"Recharge your skin with the super energizing power of finely crushed tourmaline powder blended with natural complexion",
-		linkTo: "www.google.com",
-	},
-	{
-		id: 5,
-		title: "Tourmaline & Tea Tree Bar Soap",
-		price: 12.0,
-		image: "/images/soap.jpg",
-		description:
-			"Recharge your skin with the super energizing power of finely crushed tourmaline powder blended with natural complexion",
-		linkTo: "www.google.com",
-	},
-	{
-		id: 6,
-		title: "Tourmaline & Unscented Bar Soap",
-		price: 12.0,
-		image: "/images/soap.jpg",
-		description:
-			"Recharge your skin with the super energizing power of finely crushed tourmaline powder blended with natural complexion",
-		linkTo: "www.google.com",
-	},
-]
-
-const totalAux = 12041
+import { useUIContext } from "context/UIOptionsContext/UIOptionContext"
+import { useEffect } from "react"
 
 export default function Home() {
+	const { products, totalShop } = useUIContext()
+	let totalAux = totalShop
+
+	useEffect(() => {
+		totalAux = totalShop
+	}, [totalShop])
+
 	return (
 		<>
 			<MainLayout
 				pageTitle="Dango - Test"
 				pageDescription="Recruitment Test Task">
 				<div className="container ">
-					<div className="flex justify-between items-center">
-						<h1 className="text-3xl font-bold underline">Hello world!</h1>
-						<h2>Total: ${totalAux}</h2>
+					<div className="flex justify-between items-center my-5">
+						<h1 className="text-3xl font-bold text-green-800 ">
+							Total: ${totalAux}
+						</h1>
+						<h2 className="text-3xl underline">
+							Recruitment Test - Dango Digital
+						</h2>
 					</div>
 					<hr />
-					<div className="grid grid-cols-12 gap-5">
-						<div className="col-span-12 md:col-span-3">
-							{/* Acá configuración de tamaño de titulos y texto */}
+					<div>
+						{/* <div className="col-span-12 md:col-span-3">
 							<TitleOptions />
-						</div>
-						<div className="col-span-12 md:col-span-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 place-items-center py-4">
-							{cardsData.map((card) => (
-								<Card
-									key={card.id}
-									title={card.title}
-									description={card.description}
-									image={card.image}
-									price={card.price}
-									linkTo={card.linkTo}
-								/>
-							))}
+						</div> */}
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 place-items-center py-4">
+							{products.length > 0 ? (
+								products.map((card) => (
+									<Card
+										key={card.id}
+										id={card.id}
+										title={card.title}
+										description={card.description}
+										image={card.image}
+										price={card.price}
+										linkTo={card.linkTo}
+										stock={card.stock}
+									/>
+								))
+							) : (
+								<h1>No hay productos disponibles :(</h1>
+							)}
 						</div>
 					</div>
 				</div>
