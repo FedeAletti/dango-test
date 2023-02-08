@@ -5,11 +5,7 @@ import { useEffect } from "react"
 
 export default function Home() {
 	const { products, totalShop } = useUIContext()
-	let totalAux = totalShop
-
-	useEffect(() => {
-		totalAux = totalShop
-	}, [totalShop])
+	let totalAux = totalShop.toFixed(2)
 
 	return (
 		<>
@@ -17,11 +13,11 @@ export default function Home() {
 				pageTitle="Dango - Test"
 				pageDescription="Recruitment Test Task">
 				<div className="container ">
-					<div className="flex justify-between items-center my-5">
+					<div className="flex justify-around items-center my-5">
 						<h1 className="text-3xl font-bold text-green-800 ">
 							Total: ${totalAux}
 						</h1>
-						<h2 className="text-3xl underline">
+						<h2 className="font-bold underline">
 							Recruitment Test - Dango Digital
 						</h2>
 					</div>
