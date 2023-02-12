@@ -65,7 +65,6 @@ export const TitleOptions = ({ title, size }) => {
 								max={36}
 								step={1}
 								value={sizeEdit}
-								// disabled={selectedTitle === undefined}
 								onChange={(e) => handleSizeChange(e.target.value)}
 							/>
 						</fieldset>

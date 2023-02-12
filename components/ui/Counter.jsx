@@ -10,7 +10,6 @@ export const Counter = ({ id, quantity, stock }) => {
 
 	return (
 		<>
-			{/* Make a counter for a shop */}
 			<div>
 				<select
 					className="bg-white border-solid border-2 border-black px-2 rounded"

@@ -23,9 +23,6 @@ export default function Home() {
 					</div>
 					<hr />
 					<div>
-						{/* <div className="col-span-12 md:col-span-3">
-							<TitleOptions />
-						</div> */}
 						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 place-items-center py-4">
 							{products.length > 0 ? (
 								products.map((card) => (
