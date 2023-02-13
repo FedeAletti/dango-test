@@ -26,3 +26,11 @@ body {
 .card-title:hover > button {
 	display: block;
 }
+
+.card-image {
+	object-fit: cover;
+}
+
+div {
+	transition: all 0.2s linear;
+}

@@ -31,9 +31,15 @@ export const Card = ({
 	}, [selectedTitle])
 
 	return (
-		<div className="max-w-sm rounded overflow-hidden shadow-lg border-2 border-slate-800 min-h-full bg-white py-3">
+		<div className="max-w-sm rounded overflow-hidden shadow-lg border-2 border-slate-800 min-h-full bg-white py-3 transition-all">
 			<div className="rounded-lg">
-				<Image className="" src={image} alt={title} width={500} height={500} />
+				<Image
+					className="card-image"
+					src={image}
+					alt={title}
+					width={500}
+					height={500}
+				/>
 			</div>
 			<div className="px-4 py-4">
 				<div className="flex flex-col mb-3">

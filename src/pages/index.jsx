@@ -21,9 +21,11 @@ export default function Home() {
 							Recruitment Test - Dango Digital
 						</h2>
 					</div>
+
 					<hr />
-					<div>
-						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 place-items-center py-4">
+
+					<div className="">
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 place-items-center py-4 mx-4 md:mx-0 ">
 							{products.length > 0 ? (
 								products.map((card) => (
 									<Card
